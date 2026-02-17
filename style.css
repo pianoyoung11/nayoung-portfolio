@@ -1,0 +1,733 @@
+:root {
+    --bg-color: #000000;
+    --text-color: #FFFFFF;
+    --accent-color: #CCCCCC;
+    /* Placeholder color */
+    --hover-overlay: rgba(0, 0, 0, 0.7);
+    --transition-speed: 0.3s;
+    --padding-container: 2rem;
+    --padding-mobile: 1rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    /* Align to top for better balance with brand statement */
+    padding: var(--padding-container);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--bg-color);
+    z-index: 1000;
+}
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* Brand Statement */
+.brand-statement {
+    font-size: 0.9rem;
+    color: #AAAAAA;
+    margin-top: 0.5rem;
+    line-height: 1.4;
+    transition: opacity 0.3s ease, height 0.3s ease, margin 0.3s ease;
+}
+
+/* Hide brand statement in detail mode */
+body.detail-mode .brand-statement {
+    display: none;
+    opacity: 0;
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Re-center header items when brand statement is hidden - REMOVED for consistent alignment */
+/* body.detail-mode .header {
+    align-items: center;
+} */
+
+.brand-statement .en {
+    margin-top: 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 300;
+    opacity: 0.8;
+}
+
+.nav-list {
+    display: flex;
+    gap: 3rem;
+    /* Increased gap for better spacing */
+}
+
+.nav-item a {
+    font-size: 1rem;
+    font-weight: 400;
+    transition: font-weight 0.2s;
+}
+
+.nav-item.active a {
+    font-weight: 700;
+}
+
+.nav-item a:hover {
+    font-weight: 700;
+}
+
+/* Views */
+.view {
+    padding-top: 150px;
+    /* Reduced from 180px for better balance */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Changed from center to flex-start for natural flow */
+    opacity: 1;
+    transition: opacity var(--transition-speed);
+}
+
+/* Reduced padding for Detail View - Adjusted to prevent cutoff */
+body.detail-mode .view {
+    padding-top: 140px;
+    /* Increased from 100px to avoid cutoff */
+}
+
+.view.hidden {
+    display: none;
+    opacity: 0;
+}
+
+/* Featured Projects Grid */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2x2 Grid */
+    gap: 0;
+    /* No gap as per typical B&W aesthetic, or add small gutter if needed. Using 0 for sleek look or small gap? User asked for 2x2. Let's add small gap for visual separation if wireframe implies it, but wireframe usually has gutters. */
+    padding: var(--padding-container);
+    gap: 20px;
+}
+
+.project-item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 75%;
+    /* 4:3 Aspect Ratio */
+    background-color: var(--accent-color);
+}
+
+.image-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* Hover Effects */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--hover-overlay);
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity var(--transition-speed) ease;
+}
+
+.overlay-content {
+    text-align: center;
+    color: var(--text-color);
+    transform: translateY(20px);
+    transition: transform var(--transition-speed) ease;
+}
+
+.project-item:hover .overlay {
+    opacity: 1;
+}
+
+.project-item:hover .overlay-content {
+    transform: translateY(0);
+}
+
+.project-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.project-period {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+.project-desc {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+/* Detail View */
+.detail-container {
+    padding: var(--padding-container);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.back-btn {
+    display: none;
+    /* Ensure hidden by default */
+    background: none;
+    border: none;
+    color: #FFFFFF;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-left: 0;
+    /* Align with container (header-left handles padding) - wait, header has padding, but brand statement has no extra margin. Check Brand statement style. Brand statement has no margin-left. Header has padding. So back btn should have 0 margin-left. */
+    margin-top: 0.5rem;
+    /* Match brand statement margin-top */
+    margin-bottom: 0;
+    /* Remove bottom margin, handled by view padding/gap */
+    font-family: 'Pretendard';
+    text-align: left;
+    padding: 0;
+    transition: color 0.3s ease;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+/* Show Back Button in Detail Mode */
+body.detail-mode .back-btn {
+    display: block;
+}
+
+.back-btn:hover {
+    color: #AAAAAA;
+    opacity: 1;
+}
+
+.detail-header {
+    margin-bottom: 3rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 2rem;
+}
+
+.detail-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+
+.detail-info {
+    display: flex;
+    gap: 2rem;
+    font-size: 1rem;
+    color: #AAAAAA;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+
+.detail-header p {
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+
+.detail-images {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.detail-images img {
+    width: 100%;
+    height: auto;
+}
+
+/* Archive View Styles */
+.archive-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: var(--padding-container);
+}
+
+.archive-item .image-wrapper {
+    padding-bottom: 60%;
+    /* Compact height for archive (vs 75% for featured) */
+}
+
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+}
+
+.project-tag {
+    display: inline-block;
+    border: 1px solid #FFFFFF;
+    border-radius: 10px;
+    /* Rounded corners */
+    padding: 0.2rem 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: #FFFFFF;
+    white-space: nowrap;
+}
+
+/* Mobile responsive for archive grid matches project-grid in media query */
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .header {
+        padding: var(--padding-mobile);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        /* position: relative; Removed to keep fixed per user request */
+    }
+
+    .nav-list {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 1rem 1.5rem;
+        /* Row gap 1rem, Col gap 1.5rem */
+        flex-wrap: wrap;
+    }
+
+    .view {
+        /* Start position maintained from desktop */
+        justify-content: flex-start;
+    }
+
+    /* Force consistent spacing for detail view on mobile */
+    body.detail-mode .view {
+        padding-top: 140px !important;
+        /* Consistent with desktop detail view or slightly adjusted if needed */
+    }
+
+    .nav-item a {
+        font-size: 0.9rem;
+    }
+
+    .project-grid,
+    .archive-grid {
+        grid-template-columns: 1fr !important;
+        /* Force 1 column */
+        padding: var(--padding-mobile);
+        gap: 2rem;
+    }
+
+    /* Specific Mobile Adjustment for Videos */
+    .detail-videos {
+        gap: 1rem;
+    }
+
+    .detail-title {
+        font-size: 2rem;
+    }
+
+    .detail-info {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+/* GLOBAL VIDEO SECTION STYLES (Applied to ALL screens) */
+.detail-videos {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    margin-top: 2rem;
+    /* User requested constraint: 800px-1000px. 
+       Using 100% of parent generally, but ensuring max limit if parent is 1200px */
+    max-width: 100%;
+}
+
+.video-wrapper {
+    width: 100%;
+    /* Strict constraint to prevent overflow */
+    max-width: 1000px;
+    margin: 0 auto;
+    /* Center alignment */
+    background-color: #000000;
+    line-height: 0;
+}
+
+.video-wrapper video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    /* Fluid height */
+    display: block;
+    object-fit: contain;
+    /* Prevent cutting */
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* About View Styles - Hardcoded Fix */
+.about-container {
+    padding: 0 var(--padding-container);
+    /* Match Header Horizontal Padding */
+    margin-top: 50px !important;
+    padding-top: 0 !important;
+    /* Reset, margin handles top spacing */
+    width: 100% !important;
+    /* Force Full Width */
+    max-width: none !important;
+    /* Remove width constraint */
+    margin-left: 0 !important;
+    /* Reset centering */
+    margin-right: 0 !important;
+    color: #FFFFFF;
+    box-sizing: border-box;
+    display: block !important;
+    position: relative;
+    z-index: 1;
+    overflow: visible !important;
+}
+
+/* Profile Grid (Top Section) - Strict Left Align & Gap */
+.profile-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    /* Explicit horizontal flow */
+    justify-content: flex-start !important;
+    /* Force Left Align */
+    align-items: flex-start !important;
+    gap: 100px !important;
+    /* Fixed 100px gap */
+    padding-top: 0 !important;
+    width: 100% !important;
+    margin-bottom: 6rem;
+    position: relative;
+    z-index: 10;
+    overflow: visible !important;
+}
+
+.profile-item {
+    width: auto !important;
+    /* Let content define width on desktop */
+    min-width: max-content;
+    /* Ensure items don't squash */
+    height: auto !important;
+    overflow: visible !important;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-item h3 {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: #888888;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    line-height: 1.5 !important;
+    /* Requested line-height */
+    overflow: visible !important;
+    /* Requested overflow */
+    display: block;
+    height: auto !important;
+}
+
+.profile-item p {
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.7;
+    margin: 0;
+    color: #FFFFFF;
+    overflow: visible !important;
+    height: auto !important;
+}
+
+.profile-item .highlight {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+    display: block;
+    margin-top: -0.2rem;
+    /* Optical adjustment */
+}
+
+.profile-item .sub-text {
+    font-size: 0.95rem;
+    color: #AAAAAA;
+    display: block;
+    margin-top: 0.8rem;
+}
+
+.skill-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-list li {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    color: #E0E0E0;
+    overflow: visible !important;
+}
+
+/* Divider (Hairline) */
+.divider {
+    width: 100%;
+    height: 0.5px;
+    background-color: #FFFFFF;
+    opacity: 0.2;
+    margin: 6rem 0;
+    /* >40px margin as requested, set to ~96px */
+    display: block;
+}
+
+/* History Accordion (Bottom Section) */
+.history-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.accordion-item {
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 0;
+}
+
+.accordion-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: none;
+    color: #FFFFFF;
+    padding: 1.5rem 0;
+    cursor: pointer;
+    text-align: left;
+    transition: opacity 0.3s ease;
+}
+
+.accordion-header:hover {
+    opacity: 0.7;
+}
+
+.accordion-header .year {
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 300;
+    width: 150px;
+    font-size: 1.1rem;
+    color: #AAAAAA;
+}
+
+.accordion-header .title {
+    flex-grow: 1;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.accordion-header .icon {
+    font-size: 1.5rem;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+}
+
+/* Accordion Content */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.accordion-content .content-inner {
+    padding: 0 0 40px 150px;
+    /* User request: padding-bottom 40px */
+    /* Indent to align with title */
+    font-size: 1.1rem;
+    line-height: 1.7;
+    /* Improved line height */
+    color: #DDDDDD;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    word-break: keep-all !important;
+    /* Keep phrases together */
+    overflow-wrap: break-word;
+    /* Break long words if necessary */
+    white-space: normal !important;
+    /* Ensure wrapping */
+}
+
+/* Active State */
+.accordion-item.active .accordion-header .icon {
+    transform: rotate(45deg);
+}
+
+.accordion-item.active .accordion-content {
+    max-height: none !important;
+    /* User request: dynamic height */
+    height: auto !important;
+    overflow: visible !important;
+    /* User request: overflow visible */
+    opacity: 1;
+}
+
+.accordion-item.active .content-inner {
+    opacity: 1;
+    /* Restored */
+    transform: translateY(0);
+    /* Restored */
+}
+
+.profile-item p,
+.profile-item li,
+.profile-item span {
+    white-space: normal !important;
+    /* Force text wrap */
+    word-break: keep-all;
+    /* Keep words together if possible for Korean */
+    overflow-wrap: break-word;
+    /* Break if necessary */
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+}
+
+/* Mobile Responsiveness for About Page */
+@media (max-width: 768px) {
+
+    /* About Me Mobile Overrides - Strict Vertical Stack */
+    .about-container {
+        padding: 0 var(--padding-mobile) !important;
+        /* Match header padding on mobile */
+    }
+
+    .profile-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        /* Force Vertical Stack */
+        justify-content: flex-start !important;
+        background: transparent !important;
+        gap: 40px !important;
+        /* Force 40px Vertical Gap */
+        width: 100% !important;
+        margin-bottom: 4rem;
+        height: auto !important;
+    }
+
+    .profile-item {
+        width: 100% !important;
+        /* Force Full Width */
+        max-width: 100% !important;
+        height: auto !important;
+        margin-bottom: 0 !important;
+        /* Gap handles spacing */
+        overflow: visible !important;
+        align-items: flex-start !important;
+    }
+
+    .profile-item h3 {
+        margin-bottom: 0.5rem;
+    }
+
+    .profile-item .highlight {
+        font-size: 1.8rem;
+    }
+
+    .accordion-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .accordion-header .year {
+        width: 100%;
+        font-size: 0.9rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .accordion-header .title {
+        font-size: 1.3rem;
+    }
+
+    .accordion-header .icon {
+        position: absolute;
+        right: 0;
+        top: 2rem;
+    }
+
+    .accordion-item {
+        position: relative;
+    }
+
+    .accordion-content .content-inner {
+        padding: 0 0 40px 0;
+        /* User request: padding-bottom 40px on mobile too */
+        word-break: keep-all !important;
+        overflow-wrap: break-word;
+        white-space: normal !important;
+        line-height: 1.6;
+    }
+}

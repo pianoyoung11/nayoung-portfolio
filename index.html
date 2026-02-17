@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nayoung Lee | Portfolio</title>
+    <!-- Pretendard Font (CDN) -->
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="style.css?v=2">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <h1 class="logo">Nayoung Lee</h1>
+            <div class="brand-statement">
+                <p>브랜드가 어떻게 보이고 기억되는지를 고민하며,<br>콘텐츠를 통해 브랜드 경험을 설계하는 디자이너 이나영입니다.</p>
+                <p class="en">Brand & Content Designer <br>Focused on brand storytelling and visual consistency.</p>
+            </div>
+            <button id="back-btn" class="back-btn">← Back to Projects</button>
+        </div>
+        <nav class="header-right">
+            <ul class="nav-list">
+                <li class="nav-item active"><a href="#" data-view="featured">Featured Projects</a></li>
+                <li class="nav-item"><a href="#" data-view="archive">Archive</a></li>
+                <li class="nav-item"><a href="#" data-view="about">About Me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content: Featured Projects -->
+    <main id="featured-view" class="view active">
+        <div class="project-grid">
+            <!-- Project Item 1 -->
+            <div class="project-item" data-id="project1">
+                <div class="image-wrapper">
+                    <img src="project1_thumb.jpg" alt="PAWTH AI 콘텐츠" class="project-thumb">
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <h2 class="project-title">반려동물 커플 액세서리 브랜드 PAWTH AI 콘텐츠</h2>
+                            <p class="project-period">2025.10 - 2025.11</p>
+                            <p class="project-desc">Brand Lookbook & Promotion</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Item 2 -->
+            <div class="project-item" data-id="project2">
+                <div class="image-wrapper">
+                    <img src="project2_thumb.jpg" alt="반려식물 브랜드 PUL" class="project-thumb">
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <h2 class="project-title">반려식물 브랜드 PUL</h2>
+                            <p class="project-period">2025.03 - 2025.06</p>
+                            <p class="project-desc">Branding Project</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Item 3 -->
+            <div class="project-item" data-id="project3">
+                <div class="image-wrapper">
+                    <img src="project3_thumb.jpg" alt="향수 브랜드 been" class="project-thumb">
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <h2 class="project-title">향수 브랜드 been</h2>
+                            <p class="project-period">2023.03 - 2023.06</p>
+                            <p class="project-desc">Branding Project</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Item 4 -->
+            <div class="project-item" data-id="project4">
+                <div class="image-wrapper">
+                    <img src="project4_thumb.jpg" alt="이모지 중첩 표현 기준서" class="project-thumb">
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <h2 class="project-title">이모지 중첩 표현 기준서</h2>
+                            <p class="project-period">2025.03 - 2025.06</p>
+                            <p class="project-desc">Speculative Design Research</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Archive Content: Hidden by default -->
+    <section id="archive-view" class="view hidden">
+        <div class="archive-grid">
+            <!-- Archive Item 1 -->
+            <div class="project-item archive-item" data-id="archive1">
+                <div class="image-wrapper">
+                    <img src="archive1_thumb.jpg" alt="Emotion Guide Card" class="project-thumb">
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <h2 class="project-title">Emotion Guide Card</h2>
+                            <p class="project-period">2022.03 - 2022.04</p>
+                            <p class="project-desc">Card & Package Design</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tag-container">
+                    <span class="project-tag">Graphic</span>
+                    <span class="project-tag">Package</span>
+                </div>
+            </div>
+
+            <!-- Archive Item 2 -->
+            <div class="project-item archive-item" data-id="archive2">
+                <div class="image-wrapper">
+                    <img src="archive2_thumb.jpg" alt="선물 브랜드 Cupid" class="project-thumb">
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <h2 class="project-title">선물 브랜드 Cupid</h2>
+                            <p class="project-period">2022.09 - 2022.12</p>
+                            <p class="project-desc">Branding Project</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tag-container">
+                    <span class="project-tag">Branding</span>
+                    <span class="project-tag">Graphic</span>
+                </div>
+            </div>
+
+            <!-- Archive Item 3 -->
+            <div class="project-item archive-item" data-id="archive3">
+                <div class="image-wrapper">
+                    <img src="archive3_thumb.jpg" alt="구의 증명 북 리디자인" class="project-thumb">
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <h2 class="project-title">구의 증명 북 리디자인</h2>
+                            <p class="project-period">2022.04</p>
+                            <p class="project-desc">Editing, Redesign</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tag-container">
+                    <span class="project-tag">Editorial</span>
+                </div>
+            </div>
+
+            <!-- Archive Item 4 -->
+            <div class="project-item archive-item" data-id="archive4">
+                <div class="image-wrapper">
+                    <img src="archive4_thumb.jpg" alt="PRESENT" class="project-thumb">
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <h2 class="project-title">PRESENT</h2>
+                            <p class="project-period">2023.03</p>
+                            <p class="project-desc">XR Interaction</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tag-container">
+                    <span class="project-tag">Motion/XR</span>
+                    <span class="project-tag">3D</span>
+                </div>
+            </div>
+
+            <!-- Archive Item 5 -->
+            <div class="project-item archive-item" data-id="archive5">
+                <div class="image-wrapper">
+                    <img src="archive5_thumb.jpg" alt="Superego" class="project-thumb">
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <h2 class="project-title">Superego</h2>
+                            <p class="project-period">2022.03</p>
+                            <p class="project-desc">XR Interaction</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tag-container">
+                    <span class="project-tag">Motion/XR</span>
+                    <span class="project-tag">Graphic</span>
+                </div>
+            </div>
+
+            <!-- Archive Item 6 -->
+            <div class="project-item archive-item" data-id="archive6">
+                <div class="image-wrapper">
+                    <img src="archive6_thumb.jpg" alt="Electric Angel 포스터" class="project-thumb">
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <h2 class="project-title">Electric Angel 포스터</h2>
+                            <p class="project-period">2025.03</p>
+                            <p class="project-desc">Graphic Poster</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tag-container">
+                    <span class="project-tag">Graphic</span>
+                </div>
+            </div>
+
+            <!-- Archive Item 7 -->
+            <div class="project-item archive-item" data-id="archive7">
+                <div class="image-wrapper">
+                    <img src="archive7_thumb.jpg" alt="Tim Button 특별전 포스터" class="project-thumb">
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <h2 class="project-title">Tim Button 특별전 포스터</h2>
+                            <p class="project-period">2022.05</p>
+                            <p class="project-desc">Graphic Poster</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tag-container">
+                    <span class="project-tag">Graphic</span>
+                </div>
+            </div>
+
+            <!-- Archive Item 8 -->
+            <div class="project-item archive-item" data-id="archive8">
+                <div class="image-wrapper">
+                    <img src="archive8_thumb.jpg" alt="夏の手紙 여름의 편지 엽서" class="project-thumb">
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <h2 class="project-title">夏の手紙 여름의 편지 엽서</h2>
+                            <p class="project-period">2022.07</p>
+                            <p class="project-desc">Graphic Post Card</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tag-container">
+                    <span class="project-tag">Graphic</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Content: Hidden by default -->
+    <section id="about-view" class="view hidden">
+        <div class="about-container">
+            <!-- Top Section: Fixed Information -->
+            <div class="profile-grid">
+                <div class="profile-item name-section">
+                    <h3>Name</h3>
+                    <p class="highlight">이나영 (Nayoung Lee)</p>
+                </div>
+                <div class="profile-item edu-section">
+                    <h3>Education</h3>
+                    <p>홍익대학교 시각디자인전공<br><span class="sub-text">GPA 4.2/4.5</span></p>
+                </div>
+                <div class="profile-item lang-section">
+                    <h3>Language</h3>
+                    <p>Korean (Native)<br>English (Fluent)<br>Japanese (JLPT N2)</p>
+                </div>
+                <div class="profile-item skill-section">
+                    <h3>Skills</h3>
+                    <ul class="skill-list">
+                        <li>Adobe Ps, Ai, Id, Ae</li>
+                        <li>Figma</li>
+                        <li>Blender, C4D</li>
+                        <li>Midjourney, Firefly, Runway, Nano Banana, Krea, Kling</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Bottom Section: Detailed History (Accordion) -->
+            <div class="history-accordion">
+                <!-- Item 1 -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="year">[2021-2024]</span>
+                        <span class="title">홍익대학교 시각디자인학과 소모임 활동</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="content-inner">
+                            <p>2021.04 - 2024.08 홍익대학교 시각디자인학과 인터랙션 소모임 PROTO 부원<br>2022.03 홍익대학교 시각디자인학과 소모임 전시회
+                                SISO<br>2023.03 홍익대학교 시각디자인학과 소모임 전시회 SISO
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="year">[2024]</span>
+                        <span class="title">글로벌 경험</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="content-inner">
+                            <p>2024.08 - 2024.12 캘리포니아 주립 대학교 롱비치 캠퍼스 CSULB 교환학생<br>CSULB Graphic Design 전공으로 교환학생을
+                                다녀왔습니다. Graphic Design- Development & Analysis 수업에서는 폐전자제품을 수거해 리워드를 제공하고 이를 통해 환경 보호를
+                                실천하는 브랜드 Reboot를 위한 브랜드 디자인 가이드라인을 제작하는 프로젝트를 5인 팀 프로젝트로 진행했습니다. 저는 그래픽 모티프 고안에 참여했고, 여러
+                                제품 목업을 담당했습니다.<br>
+                                담당 역할: 그래픽 모티프 고안 및 수정, 제품 목업<br>
+                                주요 업무<br>
+                                - 브랜드 그래픽 모티프 설계<br>
+                                - 브랜드 어플리케이션 목업<br>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="year">[2025]</span>
+                        <span class="title">반려식물 브랜드 기획 및 콘텐츠, 제품 디자인 (Team Project)</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="content-inner">
+                            <p>반려식물과의 유대감을 높일 수 있는 경험을 통해 식물 관리 실패를 줄이고자, 식물과 함께하는 일상을 더욱
+                                즐겁게 만드는 반려식물 브랜드를 기획하고, 브랜드 컨텐츠를 제작했습니다.<br>
+                                담당 역할: 브랜드 기획, 그래픽 디자인, 제품 디자인, 모션 그래픽, SNS 프로모션 영상<br>
+                                주요 업무<br>
+                                - BIS 디자인 수정 및 정리<br>
+                                - 키트 일부 및 제품 디자인<br>
+                                - 목업 제작 및 촬영 보조<br>
+                                - After Effects, Cinema 4D 활용 2D, 3D 모션 그래픽 제작<br>
+                                - SNS 프로모션용 인스타그램 릴스 콘텐츠 제작</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span class="year">[2025]</span>
+                        <span class="title">생성형 AI 기반 브랜드 비주얼 케이스 스터디</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="content-inner">
+                            <p>반려동물과 사람의 동등한 파트너십을 강조하는 커플 액세서리 브랜드 PAWTH를 위한 브랜드 룩북 및 프로모션 영상을 생성형 AI 툴을 사용해 제작했습니다.
+                                브랜딩은 팀 프로젝트로 진행되었으며, 저는 룩북과 영상 제작을
+                                담당했습니다.<br>
+                                담당 역할: 룩북 기획 및 제작, 프로모션 영상 제작<br>
+                                주요 업무<br>
+                                - Midjourney, Adobe Firefly, Runway, Nano Banana, Chat GPT, Krea AI, Kling AI 등 생성형 AI 툴
+                                활용 이미지 제작<br>
+                                - 반려동물, 사람 의상 디자인 및 배치를 통한 브랜드 메세지 시각화<br>
+                                - 3D 모델링 없이 3D 제품 디테일 컷 구현을 위한 AI 영상 제작<br>
+                                - 브랜드 스토리 및 메세지를 담은 콘텐츠 제작</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detail Content: Hidden by default -->
+    <section id="detail-view" class="view hidden">
+        <div class="detail-container">
+            <!-- Content will be injected via JavaScript -->
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
